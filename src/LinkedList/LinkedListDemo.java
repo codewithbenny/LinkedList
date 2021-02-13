@@ -9,7 +9,8 @@ public class LinkedListDemo {
         linkedList.addLast(20);
         linkedList.traverse();
     //    linkedList.removeFirst();
-        linkedList.removeLast();
+       System.out.println(linkedList.getLastNodeWithoutUsingTail());
+      //  linkedList.removeLast();
         linkedList.traverse();
 
     }

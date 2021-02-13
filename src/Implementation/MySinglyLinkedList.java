@@ -178,16 +178,28 @@ public class MySinglyLinkedList implements MySinglyLinkedListADT {
 
         return response;
     }
-
-    public Node getLastNodeWithoutUsingTail(){
+    public Node getLastNodeDataWithoutUsingTail() {
+        Node temp = head;
+        if (isEmpty()) {
+            return null;
+        } else {
+            while (temp.getNext() != null) {
+                temp = temp.getNext();
+            }
+            // System.out.println(temp.getData());
+            return temp.getNext();
+        }
+    }
+    public int getLastNodeWithoutUsingTail(){
         Node temp=head;
         if(isEmpty()){
-            return null;
+            return 0;
         }else {
             while (temp.getNext() != null) {
                 temp = temp.getNext();
             }
-            return temp;
+           // System.out.println(temp.getData());
+            return temp.getData();
         }
 
 

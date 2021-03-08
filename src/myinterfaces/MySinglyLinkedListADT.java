@@ -12,6 +12,8 @@ public interface MySinglyLinkedListADT {
     int first();
     int Last();
     boolean search(int searchElement);
+    void addBefore(int element , int beforeNode);
+    void addAfter(int element ,int afterNodeData);
 
 
 }

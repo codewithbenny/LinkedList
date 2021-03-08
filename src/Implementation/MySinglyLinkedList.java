@@ -178,6 +178,55 @@ public class MySinglyLinkedList implements MySinglyLinkedListADT {
 
         return response;
     }
+
+    @Override
+    public void addBefore(int element, int beforeNode) {
+     Node temp = head;
+     Node previous = null;
+     while (temp !=null){
+         if(temp.getData()== beforeNode){
+             break;
+         }else {
+             previous =temp;
+             temp = temp.getNext();
+         }
+     }
+     if(temp!=null){
+         Node node =new Node(element);
+         node.setNext(temp);
+         if(previous == null){
+             //adding at head
+             head = node;
+         }
+         else{
+             previous.setNext(node);
+         }
+         size ++;
+     }
+    }
+
+    @Override
+    public void addAfter(int element, int afterNodeData) {
+        Node temp = head;
+        while (temp != null) {
+            if (temp.getData() == afterNodeData) {
+                break;
+            }
+            temp = temp.getNext();
+        }
+        if (temp != null) {
+            Node node = new Node(element);
+            node.setNext(temp.getNext());
+            temp.setNext(node);
+
+            size++;
+            //check if temp is last node, then tail must refer to node
+            if (temp == tail) {
+                tail = node;
+            }
+        }
+    }
+
     public Node getLastNodeDataWithoutUsingTail() {
         Node temp = head;
         if (isEmpty()) {
